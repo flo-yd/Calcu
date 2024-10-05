@@ -1,9 +1,8 @@
 {
-  "builds": [
+  "rewrites": [
     {
-      "src": "Calcu/index.html",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "Calcu/dist" }
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
