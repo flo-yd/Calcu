@@ -48,10 +48,21 @@ buttons.forEach(button => button.addEventListener('click', () => {
 
     } else if (clickedButton === "x" || clickedButton === "-" || clickedButton === "+" || clickedButton === "÷") {
       if (clickedButton === "-" && (firstValue === "" || (operator && secondValue === ""))) {
-        // for negative
-        secondValue = "-" + secondValue;  // negative second value
+        if (operator) {
+          if (secondValue === "") {
+            secondValue = "-";
+          } else {
+            secondValue = "-" + secondValue;
+          }
+        } else {
+          if (firstValue === "") {
+            firstValue = "-";
+          } else {
+            firstValue = "-" + firstValue;
+          }
+        }
       } else if (operator && secondValue === "") {
-        operator = clickedButton; // replace with operator if no value
+        operator = clickedButton; 
       } else if (!operator) {
         operator = clickedButton; 
       }
